@@ -1,0 +1,65 @@
+# config
+
+# dataset configuration
+dataset: server-machine-dataset
+x_dims:
+  secure-water-treatment: 51
+  water-distribution: 123
+  server-machine-dataset: 38
+  soil-moisture-active-passive: 25
+  mars-science-laboratory: 55
+  application-server-dataset: 19
+dataset_paths:
+  secure-water-treatment:
+    train_path: "../data/secure-water-treatment/secure-water-treatment-train.json"
+    test_path: "../data/secure-water-treatment/secure-water-treatment-test.json"
+  water-distribution:
+    train_path: "../data/water-distribution/water-distribution-train.json"
+    test_path: "../data/water-distribution/water-distribution-test.json"
+  server-machine-dataset:
+    train_path: "../data/server-machine-dataset/server-machine-dataset-train.json"
+    test_path: "../data/server-machine-dataset/server-machine-dataset-test.json"
+  soil-moisture-active-passive:
+    train_path: "../data/soil-moisture-active-passive/soil-moisture-active-passive-train.json"
+    test_path: "../data/soil-moisture-active-passive/soil-moisture-active-passive-test.json"
+  mars-science-laboratory:
+    train_path: "../data/mars-science-laboratory/mars-science-laboratory-train.json"
+    test_path: "../data/mars-science-laboratory/mars-science-laboratory-test.json"
+  application-server-dataset:
+    train_path: "../data/application-server-dataset/application-server-dataset-train.json"
+    test_path: "../data/application-server-dataset/application-server-dataset-test.json"
+
+# model parameters
+max_train_size: None # `None` means full train set
+max_test_size: None
+train_start: 0
+test_start: 0
+max_epochs:
+  secure-water-treatment: 70
+  water-distribution: 70
+  server-machine-dataset: 250
+  soil-moisture-active-passive: 250
+  mars-science-laboratory: 250
+  application-server-dataset: 70
+batch_size: 1024
+z_dims: 3
+encoder_nn_size: None # `None` means that nn_size is `(input_dims // 2, input_dims // 4)`
+deocder_nn_size: None
+valid_step_freq: 200
+alpha: 0.5
+beta: 0.5
+window_size:
+  secure-water-treatment: 12
+  water-distribution: 10
+  server-machine-dataset: 5
+  soil-moisture-active-passive: 5
+  mars-science-laboratory: 5
+  application-server-dataset: 100
+
+# outputs config
+save_dir: model
+restore_dir: None
+result_dir: result
+train_score_filename: train_score.npy
+test_score_filename: test_score.npy
+threshold_filename: threshold.txt
